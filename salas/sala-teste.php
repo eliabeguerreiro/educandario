@@ -2,7 +2,7 @@
 session_start();
 include("../functions/funcoes.php");
 $_SESSION['hora_entrada'] = hora_entrada();
-$pagina = 'salateste';
+$pagina = 'sala-teste';
 ?>
 <html>
 

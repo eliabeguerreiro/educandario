@@ -343,7 +343,7 @@ if ($pagina == 'subirvideo'){
                 <label for="turma">Turma</label>
                 <select name="turma">
                     <option value="">--</option>
-                    <option value="salateste">Sala Teste</option>
+                    <option value="sala-teste">Sala Teste</option>
                 </select><br>
                 <input type="submit" name="btnCadUsuario" value="Cadastrar"><br>
             </form>

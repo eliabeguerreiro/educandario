@@ -4,9 +4,7 @@ ob_start();
 function videos_especiais ($sala, $pagina){
     include('conexao.php');
     $cmd = "SELECT * FROM aulas WHERE sala = '$sala'"; 
-    //echo $cmd;
     $result = mysqli_query($conn, $cmd);
-    //var_dump($result);
     $total = mysqli_num_rows($result);
     $registros = 1;
     $numPaginas = ceil($total/$registros);?>
