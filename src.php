@@ -37,9 +37,9 @@ if ($pagina == 'painel'){
     </nav>
     <div class="card mb-1 bg-sencondary">
         <div class="card-body">
-            <h5 class="card-title">Homenagens</h5>
-            <p class="card-text">Acesso livre para todos os alunos</p>
-            <a href="salas/homenagem.php" class="btn btn-info">Homenagens</a>
+            <h5 class="card-title">Sala Teste</h5>
+            <p class="card-text">Acesso livre para os alunos da sala teste</p>
+            <a href="salas/homenagem.php" class="btn btn-info">Acessar Sala</a>
         </div>
     </div>
  
@@ -54,6 +54,7 @@ if ($pagina == 'painel'){
             <a href="https://www.linkedin.com/in/eliabe-paz-212927184/"> Eliabe G Paz </a>|
             <a href="administracao.php/"> Relátorio </a>|
             <a href="cadastrar.php/"> Painel de controle</a>
+            <p>Deus seja louvado</p>
         </div>
         <!-- Copyright -->
     </footer>
