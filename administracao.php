@@ -4,8 +4,8 @@ include('functions/funcoes.php');
 include('functions/conexao.php');
 if(!empty($_SESSION['id'])){   
 }else{header("Location: ../index.php");}
-if($_SESSION['tipo'] == 'Administrador'){}
-elseif($_SESSION['tipo'] == 'Professor'){}
+if($_SESSION['tipo'] == 'Adm'){}
+elseif($_SESSION['tipo'] == 'Prof'){}
 else{$_SESSION['msg']='Você não Tem permissão para acessar essa pagina!</br>';
 header("Location:../src.php?pg=painel");}    
 $pagina = (isset($_GET['pg']))? $_GET['pg'] : 0;
@@ -27,10 +27,8 @@ $pagina = (isset($_GET['pg']))? $_GET['pg'] : 0;
         <div class='jumbotron  container'>
             <h1>Relatório de acessos</h1>
             </br>
-            <a class="text-decoration-none text-reset" href="administracao.php?pg=1dia"><button type="button"
-                    class="btn btn-primary">Apenas um dia</button></a>
-            <a class="text-decoration-none text-reset" href="administracao.php?pg=2dia"><button type="button"
-                    class="btn btn-primary">Mais de um dia</button></a>
+            <a class="text-decoration-none text-reset" href="administracao.php?pg=1dia"><button type="button"class="btn btn-primary">Apenas um dia</button></a>
+            <a class="text-decoration-none text-reset" href="administracao.php?pg=2dia"><button type="button"class="btn btn-primary">Mais de um dia</button></a>
             <a class="text-decoration-none text-reset" href="../src.php?pg=painel"><button type="button"
                     class="btn btn-primary">Voltar</button></a>
         </div>
@@ -39,15 +37,15 @@ $pagina = (isset($_GET['pg']))? $_GET['pg'] : 0;
         <div class='jumbotron  container'>
             <form method="POST" action="">
                 <label>Matrícula:</label></br>
-                <input type="matricula" name="matricula" placeholder="Digite a matricula do aluno"></br>
+                <input type="matricula" name="matricula" placeholder="Digite a matrícula"></br>
                 </br><label>Datas:</label></br>
                 <input type="text" name="dia" placeholder="dd/mm/aaaa">
                 <input type="text" name="dia2" placeholder="dd/mm/aaaa">
                 </br>
                 </br>
                 <input type="submit" name="btnCadUsuario" value="Procurar"><br>
-                <small id="diaHelp" class="form-text text-muted">Preencha ambos os espaços as datas // Insira as barras
-                    "/"</small>
+                <small id="diaHelp" class="form-text text-muted"> Insira as barras
+                    "/" na data</small>
             </form>
         </div>
         <div class='jumbotron  container'>
@@ -69,8 +67,6 @@ $pagina = (isset($_GET['pg']))? $_GET['pg'] : 0;
             $_SESSION['dia2'] = $_POST['dia2'];
             $relat = "SELECT * FROM sessoes WHERE matricula='". $_POST['matricula'] ."' AND dia BETWEEN'". $_POST['dia'] ."' AND '". $_POST['dia2'] ."'";
             $relatorio = mysqli_query($conn, $relat);
-            echo'</br>'.$relat.'</br>';
-            echo'</br>'.var_dump(mysqli_fetch_array($relatorio)).'</br>';
             while($row_relatorio = mysqli_fetch_assoc($relatorio)){
                 $html .='<tr>';
                 $html .="<th scope 'row'>".$row_relatorio['matricula'].'</th>';
@@ -84,17 +80,17 @@ $pagina = (isset($_GET['pg']))? $_GET['pg'] : 0;
             $html .='</table>';
             echo $html;
             $_SESSION['html']=$html;
-            echo "<a class='text-decoration-none text-reset' href='adm.php?pg=2'><button type='button' class='btn btn-primary'>Baixar tabela em Excel</button></a>"; 
+            echo "<a class='text-decoration-none text-reset' href='../adm.php?pg=2'><button type='button' class='btn btn-primary'>Baixar tabela em Excel</button></a>"; 
             echo '<p>'; 
             echo '<p>'; 
-            echo "<a class='text-decoration-none text-reset' href='create.php'><button type='button' class='btn btn-primary'>Baixar tabela em PDF</button></a>";           
+            echo "<a class='text-decoration-none text-reset' href='../create.php'><button type='button' class='btn btn-primary'>Baixar tabela em PDF</button></a>";           
          
         }
         if($pagina == '1dia'){?>
             <div class='jumbotron  container'>
                 <form method="POST" action="">
                     <label>Matrícula:</label></br>
-                    <input type="matricula" name="matricula" placeholder="Digite a matricula do aluno"></br>
+                    <input type="matricula" name="matricula" placeholder="Digite a matrícula"></br>
                     </br><label>Data:</label></br>
                     <input type="text" name="dia" placeholder="dd/mm/aaaa">
                     </br>
@@ -134,10 +130,10 @@ $pagina = (isset($_GET['pg']))? $_GET['pg'] : 0;
             $html .='</table>';
             echo $html;
             $_SESSION['html']=$html;
-            echo "<a class='text-decoration-none text-reset' href='adm.php?pg=1'><button type='button' class='btn btn-primary'>Baixar tabela em Excel</button></a>";
+            echo "<a class='text-decoration-none text-reset' href='../adm.php?pg=1'><button type='button' class='btn btn-primary'>Baixar tabela em Excel</button></a>";
             echo '<p>'; 
             echo '<p>'; 
-            echo "<a class='text-decoration-none text-reset .mt-1' href='create.php'><button type='button' class='btn btn-primary'>Baixar tabela em PDF</button></a>";           
+            echo "<a class='text-decoration-none text-reset .mt-1' href='../create.php'><button type='button' class='btn btn-primary'>Baixar tabela em PDF</button></a>";           
         }
 ?>
             </div>

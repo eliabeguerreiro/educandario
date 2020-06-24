@@ -17,6 +17,7 @@ if ($pagina == 'painel'){
         echo"</div>";
         unset($_SESSION['msg']);
     }
+    //var_dump($_SESSION);
     ?>
 <html>
 
@@ -45,7 +46,7 @@ if ($pagina == 'painel'){
  
     <footer class=" page-footer font-small blue ">
         <nav class="navbar navbar-dark bg-primary">
-            <h1 class="navbar-brand mx-auto">Escola Universo da Criança</h1>
+            <h1 class="navbar-brand mx-auto">Educandario Paulo Freire</h1>
             <h3 class="navbar-brand mx-auto"><?php echo $_SESSION['nome'];?></h3>
         </nav>
 
@@ -53,7 +54,7 @@ if ($pagina == 'painel'){
         <div class="footer-copyright text-center py-3">© 2020 Copyright | Hants Tecnologys:
             <a href="https://www.linkedin.com/in/eliabe-paz-212927184/"> Eliabe G Paz </a>|
             <a href="administracao.php/"> Relátorio </a>|
-            <a href="cadastrar.php/"> Painel de controle</a>
+            <a href="cadastrar.php?pg=#"> Painel de controle</a>
             <p>Deus seja louvado</p>
         </div>
         <!-- Copyright -->
