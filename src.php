@@ -39,7 +39,7 @@ if ($pagina == 'painel'){
         <div class="card-body">
             <h5 class="card-title">Sala Teste</h5>
             <p class="card-text">Acesso livre para os alunos da sala teste</p>
-            <a href="salas/homenagem.php" class="btn btn-info">Acessar Sala</a>
+            <a href="salas/sala-teste.php" class="btn btn-info">Acessar Sala</a>
         </div>
     </div>
  
