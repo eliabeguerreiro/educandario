@@ -2,7 +2,7 @@
 ob_start();
 function video ($sala, $pagina){
     include('conexao.php');
-    $cmd = "SELECT * FROM videos WHERE sala = '$sala'"; 
+    $cmd = "SELECT * FROM aulas WHERE sala = '$sala'"; 
     $result = mysqli_query($conn, $cmd);
     $total = mysqli_num_rows($result);
     $registros = 1;
@@ -21,7 +21,7 @@ function video ($sala, $pagina){
 
 <?php
 //não mexe nisso daqui PELOAMORDEDEUS
-$cmd = "SELECT * FROM videos WHERE sala = '$sala' AND num_fila = $pagina";
+$cmd = "SELECT * FROM aulas WHERE sala = '$sala' AND num_fila = $pagina";
 $produto = mysqli_query($conn, $cmd);
 while ($row = mysqli_fetch_array($produto)){
         ?><div class="container-fluid mx-auto mt-4 mb-4" id="ytplayer"> <script>
@@ -46,14 +46,16 @@ return($produto);
 
 function videos_especiais ($sala, $pagina){
     include('conexao.php');
-    $cmd = "SELECT * FROM videos WHERE sala = '$sala'"; 
+    $cmd = "SELECT * FROM aulas WHERE sala = '$sala'"; 
+    //echo $cmd;
     $result = mysqli_query($conn, $cmd);
+    //var_dump($result);
     $total = mysqli_num_rows($result);
     $registros = 1;
     $numPaginas = ceil($total/$registros);?>
 <div class=" collapse navbar-collapse navbar navbar-dark bg-secondary" id="navbarSupportedContent"><?php
     for($i = 1; $i < $numPaginas + 1; $i++) {
-        $cmd = "SELECT * FROM videos WHERE sala = '$sala' AND num_fila = $pagina";
+        $cmd = "SELECT * FROM aulas WHERE sala = '$sala' AND num_fila = $pagina";
         $resultado = mysqli_fetch_array($result);  
         ?>
     <div class='btn-group-vertical '>
@@ -66,7 +68,7 @@ function videos_especiais ($sala, $pagina){
 
 <?php
 //não mexe nisso daqui PELOAMORDEDEUS
-$cmd = "SELECT * FROM videos WHERE sala = '$sala' AND num_fila = $pagina";
+$cmd = "SELECT * FROM aulas WHERE sala = '$sala' AND num_fila = $pagina";
 $produto = mysqli_query($conn, $cmd);
 while ($row = mysqli_fetch_array($produto)){
         ?><div class="container-fluid mx-auto mt-4 mb-4" id="ytplayer"> <script>
